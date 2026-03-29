@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 mb-8 md:mb-0">
             <div className="flex items-center mb-4">
-              <img src="/logo.png" alt="ShapeNSign Logo" className="h-10 w-10 mr-2" />
+              <Image src="/logo.png" alt="ShapeNSign Logo" width={40} height={40} className="h-10 w-10 mr-2" />
               <span className="font-bold text-xl text-blue-600">ShapeNSign</span>
             </div>
             <p className="text-gray-600 mb-4 max-w-md">

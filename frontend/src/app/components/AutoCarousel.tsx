@@ -1,5 +1,6 @@
 "use client"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
+import Image from "next/image"
 
 export interface CarouselImage {
   id: number
@@ -18,7 +19,7 @@ const AutoCarousel = ({ images, interval = 5000, accentColor = "blue" }: AutoCar
   const [isPaused, setIsPaused] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  const startTimer = () => {
+  const startTimer = useCallback(() => {
     if (timerRef.current) {
       clearInterval(timerRef.current)
     }
@@ -27,14 +28,14 @@ const AutoCarousel = ({ images, interval = 5000, accentColor = "blue" }: AutoCar
         setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1))
       }
     }, interval)
-  }
+  }, [isPaused, interval, images.length])
 
   useEffect(() => {
     startTimer()
     return () => {
       if (timerRef.current) clearInterval(timerRef.current)
     }
-  }, [isPaused, interval, images.length])
+  }, [startTimer])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1))
@@ -61,10 +62,11 @@ const AutoCarousel = ({ images, interval = 5000, accentColor = "blue" }: AutoCar
               currentSlide === index ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
+            <Image
               src={image.src || "/placeholder.svg"}
               alt={image.alt}
-              className="max-w-full max-h-full w-auto h-auto object-contain"
+              fill
+              className="object-contain"
             />
           </div>
         ))}

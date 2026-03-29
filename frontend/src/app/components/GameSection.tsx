@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import CssAnimatedBackground from "./AnimatedBackground"
 
 interface GameSectionProps {
@@ -27,7 +28,7 @@ const GameSection = ({ id, title, description, cardColor, children, gameLink, ic
           <div className="relative z-10">
             <div className="flex items-center mb-4">
               {/* Apply dynamic icon size */}
-              <img src={icon || "/placeholder.svg"} alt={title} className={`${iconSize} mr-3`} />
+              <Image src={icon || "/placeholder.svg"} alt={title} width={40} height={40} className={`${iconSize} mr-3`} />
               <h2 className="section-title m-0">{title}</h2>
             </div>
 
