@@ -1,0 +1,11 @@
+tensorflow
+numpy
+pandas
+mediapipe==0.10.14
+opencv-python
+keyboard
+mouse
+screeninfo
+scikit-learn
+pycaw
+comtypes
