@@ -1,7 +1,7 @@
 # Shape-Sign
 Shape-Sign is an interactive application that utilizes hand gesture recognition models to help users learn and engage with sign language. This project consists of a frontend interface and a machine learning model running simultaneously.
 
-<a href="https://shape-sign.vercel.app/"> Check out our demo right here!!! </a>
+<a href="https://shape-sign-mu.vercel.app"> Check out our demo right here!!! </a>
 <br>
 <br>
 <a href="https://devpost.com/software/shape-sign">BeachHacks 8.0 Submission </a>
